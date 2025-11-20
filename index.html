@@ -1,21 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <title>Todo App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Awesome Todo • Ansh</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 id="main-heading">Todo App</h1>
+  <main class="app">
+    <header class="app-header">
+      <div class="title-group">
+        <h1>Todo • Shine</h1>
+        <p class="subtitle">Plan. Focus. Ship.</p>
+      </div>
 
-  <div class="grid-container">
-    <input id="todo-input" class ="inputtext" type="text" placeholder="Enter Todo here">
-    <input id="todo-date" class ="datedate" type="date">
-    <button class='btn-todo' onclick="addTodo();">Add todo</button>
-  </div>
+      <div class="controls-row">
+        <div class="input-wrap">
+          <input id="todo-input" class="input" type="text" placeholder="Add a new todo..." aria-label="Todo title" />
+          <input id="todo-date" class="input input-date" type="date" aria-label="Due date" />
+          <button id="add-btn" class="btn primary" title="Add todo">Add</button>
+        </div>
 
-  <div class="todo-container grid-container"></div>
+        <div class="search-filter">
+          <input id="search-input" class="input search" type="search" placeholder="Search todos..." aria-label="Search todos" />
+          <select id="filter" class="input select" aria-label="Filter todos">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+            <option value="overdue">Overdue</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <section id="todo-list" class="todos" aria-live="polite">
+      <!-- todo items injected here -->
+    </section>
+
+    <footer class="app-footer">
+      <div id="stats" class="stats">No todos yet — add something awesome ✨</div>
+      <div class="footer-actions">
+        <button id="clear-completed" class="btn ghost">Clear completed</button>
+        <button id="clear-all" class="btn ghost danger">Clear all</button>
+      </div>
+    </footer>
+
+    <!-- Edit modal (hidden by default) -->
+    <div id="edit-modal" class="modal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h3 id="modal-title">Edit Todo</h3>
+        <input id="edit-title" class="input" type="text" />
+        <input id="edit-date" class="input input-date" type="date" />
+        <div class="modal-actions">
+          <button id="save-edit" class="btn primary">Save</button>
+          <button id="cancel-edit" class="btn ghost">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="logic.js"></script>
 </body>
 </html>
+
